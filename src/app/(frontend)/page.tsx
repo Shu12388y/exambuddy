@@ -10,10 +10,10 @@ export default function Home() {
       <section className="bg-linear-to-br from-blue-600 to-purple-600 text-white py-20 px-4">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            Free GATE CS Core Subjects Resources
+            Free GATE Resources
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-blue-100">
-            Computer Networks • Theory of Computation • Compiler Design
+            Blogs • Study Resources • Notes • PYQs • Important Updates & Notifications
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
