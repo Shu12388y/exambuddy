@@ -1,39 +1,39 @@
 'use client'
 import React from 'react'
 import { useParams } from 'next/navigation'
-import { useQuery } from '@tanstack/react-query';
-import { get_blog } from '@/handler/blog.handler';
-import Link from 'next/link';
+import { useQuery } from '@tanstack/react-query'
+import { get_blog } from '@/handler/blog.handler'
+import Link from 'next/link'
 import { RichText } from '@payloadcms/richtext-lexical/react'
-import { Calendar,  ArrowLeft } from 'lucide-react';
-
+import { Calendar, ArrowLeft } from 'lucide-react'
+import LoadingPage from '@/components/Loading'
+import ErrorPage from '@/components/Error'
 
 function Page() {
-    const {slug} = useParams();
-    const {data,isLoading,isError} = useQuery({
-        queryKey:['blog'],
-        queryFn:()=>get_blog(slug as string)
-    });
+  const { slug } = useParams()
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ['blog'],
+    queryFn: () => get_blog(slug as string),
+  })
 
-
-    if(isLoading){
-        return(
-            <>
-            Loading
-            </>
-        )
-    }
-
-    if(isError){
-        return(
-            <>
-            Something went wrong
-            </>
-        )
-    }
-
-    console.log(data)
+  if (isLoading) {
     return (
+      <>
+        <LoadingPage />
+      </>
+    )
+  }
+
+  if (isError) {
+    return (
+      <>
+        <ErrorPage />
+      </>
+    )
+  }
+
+  console.log(data)
+  return (
     <div className="min-h-screen bg-gray-50">
       <div className="bg-linear-to-r from-blue-600 to-purple-600 text-white py-16 px-4">
         <div className="max-w-4xl mx-auto">
@@ -61,15 +61,13 @@ function Page() {
             alt={data?.title}
             className="w-full h-96 object-cover rounded-lg mb-8"
           />
-        <div
-        className="prose prose-lg max-w-none"
-        >
-            <RichText data={data?.content}/>
-        </div>
+          <div className="prose prose-lg max-w-none">
+            <RichText data={data?.content} />
+          </div>
         </div>
       </div>
     </div>
-  );
+  )
 }
 
 export default Page

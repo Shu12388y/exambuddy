@@ -8,7 +8,7 @@ import { useQuery } from '@tanstack/react-query'
 import LoadingPage from '@/components/Loading'
 import ErrorPage from '@/components/Error'
 
-export default function ResourceSection() {
+export default function Page() {
   const { data, isLoading, isError } = useQuery({
     queryKey: ['resource'],
     queryFn: get_resources,
@@ -22,7 +22,7 @@ export default function ResourceSection() {
     return <ErrorPage />
   }
   return (
-    <section className="py-16 px-4 bg-gray-50">
+    <section className="py-16 px-4 bg-gray-50 h-screen">
       <div className="max-w-7xl mx-auto">
         <SectionHeader
           type="text"
@@ -30,7 +30,7 @@ export default function ResourceSection() {
           subtitle="Comprehensive study materials, practice problems, and previous year questions"
         />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {data?.docs?.slice(0,3).map((subject: any) => (
+          {data?.docs?.map((subject: any) => (
             <div
               key={subject.id}
               className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow"

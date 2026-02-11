@@ -47,32 +47,7 @@ export default function Home() {
       {/* Resource Section */}
       <ResourceSection/>
 
-
-{/* 
-      <section className="py-16 px-4">
-        <div className="max-w-7xl mx-auto">
-          <SectionHeader
-            title="Recommended Books"
-            subtitle="Curated list of best books for GATE CS preparation"
-          />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-            {books.slice(0, 3).map((book) => (
-              <BookCard key={book.id} {...book} />
-            ))}
-          </div>
-          <div className="text-center">
-            <Link
-              href="/books"
-              className="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700 text-lg"
-            >
-              View All Books
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
-          </div>
-        </div>
-      </section> */}
-
-      <section className="py-16 px-4 bg-gradient-to-r from-blue-600 to-purple-600">
+      <section className="py-16 px-4 bg-linear-to-r from-blue-600 to-purple-600">
         <div className="max-w-4xl mx-auto text-center">
           <BookOpen className="h-16 w-16 text-white mx-auto mb-6" />
           <h2 className="text-4xl font-bold text-white mb-4">
